@@ -8,24 +8,23 @@
 :root{
   --bg:#05070b;--surface:#0b1119;--surface2:#101923;--text:#f5fbff;--muted:#91a3b3;
   --cyan:#5ef2ff;--blue:#6b8cff;--pink:#ff5edc;--lime:#caff6b;--line:rgba(143,221,255,.18);
-  --shadow:0 0 28px rgba(94,242,255,.14), inset 0 0 28px rgba(94,242,255,.035);
+  --shadow:0 4px 24px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:#05070b;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden;width:100%}
-#app{min-height:100vh;min-height:100dvh;background:radial-gradient(circle at 15% 10%,rgba(94,242,255,.12),transparent 28%),radial-gradient(circle at 88% 18%,rgba(255,94,220,.10),transparent 25%),linear-gradient(180deg,#05070b 0%,#070b11 55%,#05070b 100%);overflow-x:hidden}
-.noise{position:fixed;inset:0;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
-header{position:sticky;top:0;z-index:30;height:68px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;padding:0 max(4vw,14px);padding-top:env(safe-area-inset-top)}
+#app{min-height:100vh;min-height:100dvh;background:radial-gradient(circle at 15% 10%,rgba(94,242,255,.10),transparent 32%),radial-gradient(circle at 88% 18%,rgba(255,94,220,.08),transparent 28%),linear-gradient(180deg,#05070b 0%,#070b11 55%,#05070b 100%);overflow-x:hidden}
+header{position:sticky;top:0;z-index:30;height:68px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.90);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 max(4vw,14px);padding-top:env(safe-area-inset-top)}
 .brand{display:flex;gap:10px;align-items:center;font-weight:900;letter-spacing:.14em;font-size:12px;white-space:nowrap;flex-shrink:0}
 .brand-sub{opacity:.85}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan);flex-shrink:0}
 nav{display:flex;gap:6px;align-items:center;overflow-x:auto;max-width:65vw;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;padding:4px 0}
 nav::-webkit-scrollbar{display:none}
-nav button{border:1px solid transparent;background:transparent;color:var(--muted);padding:7px 11px;border-radius:999px;font-size:12px;white-space:nowrap;cursor:pointer;touch-action:manipulation;transition:all .2s ease;flex-shrink:0}
+nav button{border:1px solid transparent;background:transparent;color:var(--muted);padding:7px 11px;border-radius:999px;font-size:12px;white-space:nowrap;cursor:pointer;touch-action:manipulation;transition:background .2s,color .2s,border-color .2s;flex-shrink:0}
 nav button:hover,nav button.active{color:var(--text);border-color:var(--line);background:rgba(94,242,255,.08)}
 main{width:min(1180px,90vw);margin:auto;overflow-x:hidden}
 .hero{min-height:calc(100vh - 68px);min-height:calc(100svh - 68px);display:grid;place-items:center;position:relative;padding:clamp(50px,8vw,90px) 0}
-.hero:before{content:"";position:absolute;width:clamp(260px,50vw,540px);height:clamp(260px,50vw,540px);border:1px solid rgba(94,242,255,.12);border-radius:50%;box-shadow:0 0 100px rgba(94,242,255,.08);animation:float 7s ease-in-out infinite;pointer-events:none}
+.hero:before{content:"";position:absolute;width:clamp(260px,50vw,540px);height:clamp(260px,50vw,540px);border:1px solid rgba(94,242,255,.12);border-radius:50%;box-shadow:0 0 60px rgba(94,242,255,.06);animation:float 7s ease-in-out infinite;pointer-events:none;will-change:transform;transform:translateZ(0)}
 .hero-inner{position:relative;z-index:2;max-width:930px;width:100%}
 .eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.2em;color:var(--cyan);font-weight:800;text-transform:uppercase}
 .hero h1{font-size:clamp(40px,9vw,135px);line-height:.92;margin:22px 0 28px;letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 0 32px rgba(94,242,255,.17);word-break:break-word}
@@ -43,8 +42,8 @@ section{padding:clamp(55px,8vw,105px) 0;border-top:1px solid rgba(143,221,255,.1
 .kicker{font-size:11px;color:var(--pink);letter-spacing:.2em;font-weight:900;margin-bottom:12px;text-transform:uppercase}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:linear-gradient(145deg,rgba(16,25,35,.92),rgba(7,12,18,.92));border:1px solid var(--line);border-radius:24px;padding:clamp(18px,3vw,26px);box-shadow:var(--shadow);transition:.35s transform,.35s border-color,.35s box-shadow}
-.card:hover{transform:translateY(-5px);border-color:rgba(94,242,255,.5);box-shadow:0 0 36px rgba(94,242,255,.12)}
+.card{background:linear-gradient(145deg,rgba(16,25,35,.92),rgba(7,12,18,.92));border:1px solid var(--line);border-radius:24px;padding:clamp(18px,3vw,26px);box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease;transform:translateZ(0);will-change:transform}
+.card:hover{transform:translateY(-4px);border-color:rgba(94,242,255,.5)}
 .tag{font-size:10px;letter-spacing:.18em;color:var(--cyan);font-weight:900}
 .card h3{font-size:clamp(20px,2.4vw,24px);margin:14px 0 10px;line-height:1.2}
 .card p,.card li{color:var(--muted);line-height:1.55;font-size:clamp(14px,1.5vw,15px)}
@@ -100,7 +99,6 @@ footer{padding:28px 5vw;padding-bottom:max(28px,env(safe-area-inset-bottom));bor
 </head>
 <body>
 <div id="app">
-<div class="noise"></div>
 <header><div class="brand"><span class="dot"></span> POLAR <span class="brand-sub">GRANIZADOS · POPAYÁN</span></div><nav id="nav"></nav></header>
 <main>
 <section class="hero" id="inicio"><div class="hero-inner"><div class="eyebrow">Estrategia digital · primer mes</div><h1>POLAR <span>ES EL PLAN.</span></h1><p>No queremos que Polar sea solamente el lugar donde venden granizados. Queremos que sea el lugar que aparece cuando alguien piensa: <strong>“¿Qué hacemos hoy?”</strong></p><div class="hero-actions"><button class="btn primary" onclick="go('idea')">Ver la estrategia</button><button class="btn" onclick="go('calendario')">Ver el plan de contenido</button></div></div></section>
@@ -130,22 +128,30 @@ sections.forEach(([id,label])=>{
   nav.appendChild(b);
 });
 function go(id){
-  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+  const el = document.getElementById(id);
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 }
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('nav button').forEach(b=>{
-        const active = b.dataset.id === e.target.id;
-        b.classList.toggle('active', active);
-        if(active){
-          b.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-        }
-      });
+let activeId = '';
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      activeId = e.target.id;
     }
   });
-},{rootMargin:'-30% 0px -55% 0px'});
-document.querySelectorAll('section').forEach(s=>io.observe(s));
+  if (activeId) {
+    nav.querySelectorAll('button').forEach(b => {
+      const isCurrent = b.dataset.id === activeId;
+      b.classList.toggle('active', isCurrent);
+      if (isCurrent) {
+        const offset = b.offsetLeft - (nav.clientWidth / 2) + (b.clientWidth / 2);
+        nav.scrollTo({ left: offset, behavior: 'smooth' });
+      }
+    });
+  }
+}, { rootMargin: '-20% 0px -55% 0px' });
+document.querySelectorAll('section').forEach(s => io.observe(s));
 </script>
 </body>
 </html>
